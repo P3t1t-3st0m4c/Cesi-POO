@@ -6,6 +6,10 @@ class Point2D :
 public:
     Point2D(void);
     Point2D(double, double);
-    ~Point2D();
-    virtual double distance(Point& a) const;
+    virtual double distance(Point& a);
+    double x();
+    double y();
+    void x(double t_x);
+    void y(double t_y);
+    virtual vector<double> getCoordinates();
 };

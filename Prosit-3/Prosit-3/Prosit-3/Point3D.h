@@ -5,7 +5,14 @@ class Point3D :
 {
     Point3D(void);
     Point3D(double x, double y, double z);
-    ~Point3D();
-    virtual double distance(Point3D& a) const;
+    virtual double distance(Point& a);
+    double x();
+    double y();
+    double z();
+    void x(double t_x);
+    void y(double t_y);
+    void z(double t_z);
+    virtual vector<double> getCoordinates();
+
 };
 
