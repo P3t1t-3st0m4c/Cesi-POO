@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <thread>
+#include <mutex>
 
 using namespace std;
 
@@ -13,9 +15,10 @@ public:
 	~Emetteur();
 	static vector<Emetteur*> liste;
 	string get(void);
-	void putData();
+	void main();
 
 private:
-	string data;
-	string filename;
+	vector<string> data;
+	string buffer;
+	bool running;
 };

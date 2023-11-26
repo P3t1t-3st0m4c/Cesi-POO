@@ -1,7 +1,4 @@
 #pragma once
-#include <vector>
-#include <string>
-#include <iostream>
 
 #include "Emetteur.h"
 
@@ -14,15 +11,15 @@ public:
 	~Recepteur(void);
 	// Func pointer
 	void abonner(int i);
+	void desabonner(int i);
 	void check();
 	void check(int i);
-	void read();
+	void listen(Emetteur *e, int i);
+
 private:
-	vector<string> *buffer;
-	// Array of pointers to emetteurs
-	Emetteur **emetteurs;
 	// Array of pointers to vectors of string
-	vector<string> **messages;
+	vector<string>** messages;
+	bool* abonnes;
 	int size;
 	int last;
 };
