@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
 	//Création des objets
 	Emetteur *emetteur1 = new Emetteur;
 	Emetteur emetteur2("Données.txt");
-	Emetteur *emetteur3 = new Emetteur;
+	Emetteur emetteur3;
 	Emetteur emetteur4;
 	Emetteur emetteur5;
 
@@ -27,6 +27,10 @@ int main(int argc, char *argv[]){
 	t5.detach();
 
 	Recepteur recepteur(5);
+	this_thread::sleep_for(chrono::milliseconds(1000));
+	for (int i = 0; i < 5; i++) {
+		cout << Emetteur::liste[i] << endl;
+	}
 
 	// Lecture des messages via une commande
 	while (true) {
@@ -44,13 +48,13 @@ int main(int argc, char *argv[]){
 				recepteur.check(i);
 			}
 		}
-		else if (line == "abonner") {
+		else if (line == "abonnement") {
 			cout << "Abonner a l'emetteur numero : ";
 			getline(cin, line);
 			i = stoi(line);
 			recepteur.abonner(i);
 		}
-		else if (line == "desabonner") {
+		else if (line == "desabonnement") {
 			cout << "Desabonner a l'emetteur numero : ";
 			getline(cin, line);
 			i = stoi(line);
@@ -61,5 +65,4 @@ int main(int argc, char *argv[]){
 		}
 	}
 	delete emetteur1;
-	delete emetteur3;
 }

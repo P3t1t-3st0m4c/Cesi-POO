@@ -13,8 +13,8 @@ Emetteur::Emetteur(){
 }
 
 Emetteur::Emetteur(string t_filename){
+	cout << "Emetteur " << this << " cree !" << endl;
 	running = true;
-	Emetteur::liste.push_back(this);
 	ifstream file(t_filename);
 	string line;
 	while (getline(file, line)) {
